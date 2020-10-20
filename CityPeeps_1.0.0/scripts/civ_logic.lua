@@ -18,7 +18,7 @@ function Civ:init()
 		            upgrades = config.upgrades							  	, -- Upgrades table
 		       village_needs = config.village_needs                     	, -- Items needed to increase village growth rate
 		          city_needs = config.city_needs                           	, -- Items needed to increase city household count
-		    city_needs_count = 1								          	, -- Count of needed city items for the GUI
+				 needs_count = 1								          	, -- Count of needed city items for the GUI
 		        status_title = "-"                                        	, -- Status title from tiers array - based on score
 		       status_renown = "-"                                        	, -- Status renown from tiers array - based on score
 		               score = 0                                          	, -- Civilzation score - determines title and renown
@@ -45,12 +45,12 @@ function Civ:init()
 	}
 
 	-- Add in any "needs" crates selected in mod settings
-	if (settings.startup["k2cp-require-crate-house"].value   ) then table.insert(self.state.city_needs,"k2cp-crate-house")    self.state.city_needs_count = self.state.city_needs_count + 1 end
-	if (settings.startup["k2cp-require-crate-energy"].value  ) then table.insert(self.state.city_needs,"k2cp-crate-energy")   self.state.city_needs_count = self.state.city_needs_count + 1 end
-	if (settings.startup["k2cp-require-crate-school"].value  ) then table.insert(self.state.city_needs,"k2cp-crate-school")   self.state.city_needs_count = self.state.city_needs_count + 1 end
-	if (settings.startup["k2cp-require-crate-military"].value) then table.insert(self.state.city_needs,"k2cp-crate-military") self.state.city_needs_count = self.state.city_needs_count + 1 end
-	if (settings.startup["k2cp-require-crate-medical"].value ) then table.insert(self.state.city_needs,"k2cp-crate-medical")  self.state.city_needs_count = self.state.city_needs_count + 1 end
-	if (settings.startup["k2cp-require-crate-pleasure"].value) then table.insert(self.state.city_needs,"k2cp-crate-pleasure") self.state.city_needs_count = self.state.city_needs_count + 1 end
+	if (settings.startup["k2cp-require-crate-house"].value   ) then table.insert(self.state.city_needs,"k2cp-crate-house")    self.state.needs_count = self.state.needs_count + 1 end
+	if (settings.startup["k2cp-require-crate-energy"].value  ) then table.insert(self.state.city_needs,"k2cp-crate-energy")   self.state.needs_count = self.state.needs_count + 1 end
+	if (settings.startup["k2cp-require-crate-school"].value  ) then table.insert(self.state.city_needs,"k2cp-crate-school")   self.state.needs_count = self.state.needs_count + 1 end
+	if (settings.startup["k2cp-require-crate-military"].value) then table.insert(self.state.city_needs,"k2cp-crate-military") self.state.needs_count = self.state.needs_count + 1 end
+	if (settings.startup["k2cp-require-crate-medical"].value ) then table.insert(self.state.city_needs,"k2cp-crate-medical")  self.state.needs_count = self.state.needs_count + 1 end
+	if (settings.startup["k2cp-require-crate-pleasure"].value) then table.insert(self.state.city_needs,"k2cp-crate-pleasure") self.state.needs_count = self.state.needs_count + 1 end
 	
 	global.civ_state = self.state
 end
