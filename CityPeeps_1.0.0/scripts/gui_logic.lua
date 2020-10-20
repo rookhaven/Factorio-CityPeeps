@@ -186,7 +186,7 @@ function Gui:add_city_gui_dtl(index)
 		  k2cp_needs_flow.style.bottom_padding = 4
 	local k2cp_needs_table=k2cp_needs_flow.add{type="table", name="k2cp_needs_table", style="cp_table_needs_style", column_count=Civ.state.needs_count + 1}
 		  k2cp_needs_table.add{type="label", caption={"caption.k2cp-needs"}, style="cp_label_narrow_right_style", tooltip={"tooltip.k2cp-needs-desc"}}
-		  for _, need in ipairs(Civ.state.needs) do
+		  for _, need in ipairs(Civ.state.city_needs) do
 		  	local tt="item-name."..need
 		  	k2cp_needs_table.add{type="sprite-button", name=need.."_sprite", sprite="item/"..need, tooltip={tt}}
 		  end
@@ -209,7 +209,7 @@ function Gui:update_city_dtl(city)
 		city_dtl_flow.k2cp_dtl_info.k2cp_city_table.districts.caption = city.state.districts
 
 		local inventory = city.state.entity.get_inventory(1)
-		for _, need in ipairs(Civ.state.needs) do
+		for _, need in ipairs(Civ.state.city_needs) do
 			local needs_sprite = need.."_sprite"
 			city_dtl_flow.k2cp_needs_flow.k2cp_needs_table[needs_sprite].number = inventory.get_item_count(need)
 		end
